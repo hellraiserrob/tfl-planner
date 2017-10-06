@@ -5,7 +5,7 @@ class Landing extends Component {
     render() {
         return (
             <div>
-                <h2>Landing</h2>
+                
                 <Status />
             </div>
         );

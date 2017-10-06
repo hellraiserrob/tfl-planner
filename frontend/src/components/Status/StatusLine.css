@@ -1,0 +1,82 @@
+.statusLine {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    
+    position: relative;
+
+    transform: translateZ(0)
+}
+
+.statusLine .marker {
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left:0;
+    width: 200px;
+    /* right: 0; */
+    /* height: 10px; */
+    /* border-radius: 50%; */
+    z-index: -1;
+    
+}
+
+.bakerloo .marker {
+    background: #894e24;
+}
+
+.central .marker {
+    background: #dc241f;
+}
+
+.circle .marker {
+    background: #ffce00;
+}
+
+.district .marker {
+    background: #007229;
+}
+
+.hammersmith-city .marker {
+    background: #d799af;
+}
+
+.dlr .marker {
+    background: #00b1a8;
+}
+
+.jubilee .marker {
+    background: #667070;
+}
+
+.metropolitan .marker {
+    background: #82034f;
+}
+
+.northern .marker {
+    background: #000000;
+}
+
+
+
+.piccadilly .marker {
+    background: #01229f;
+}
+
+.victoria .marker {
+    background: #00a1e1;
+}
+
+.waterloo-city .marker {
+    background: #43d3bb;
+}
+
+.tfl-rail .marker {
+    background: #01229f;
+}
+
+.tram .marker {
+    background: #19cf3e;
+}
+.london-overground .marker {
+    background: #fd6000;
+}

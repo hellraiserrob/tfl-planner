@@ -7,9 +7,12 @@ import {
 import './App.css';
 import './Grid.css';
 import './Type.css';
+import './Button.css';
+import './Helpers.css';
 
 
 import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 import Landing from '../Pages/Landing'
 import Planner from '../Pages/Planner'
@@ -21,9 +24,18 @@ class App extends Component {
             <Router>
                 <div className="app">
                     <Header />
-                    <Route exact path="/" component={Landing} />
-                    <Route path="/planner" component={Planner} />
-                    <Route path="/arrivals" component={Arrivals} />
+
+                    <div className="wrap">
+                        <div className="grid">
+                            <div className="unit whole">
+                                <Route exact path="/" component={Landing} />
+                                <Route path="/planner" component={Planner} />
+                                <Route path="/arrivals" component={Arrivals} />
+                            </div>
+                        </div>
+                    </div>
+
+                    <Footer />
                 </div>
             </Router>
         );

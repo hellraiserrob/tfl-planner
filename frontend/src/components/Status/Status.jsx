@@ -5,16 +5,18 @@ import StatusLine from './StatusLine'
 import { getUrl } from '../../utils/services.js'
 import { API_BASE, API_STATUS } from '../../constants/endpoints.js'
 
+import Loading from '../Common/Loading'
+
 class Status extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.state = {
             lines: [],
             isLoading: false,
             isError: false,
-
+            updated: null
         }
 
         this.refresh = this.refresh.bind(this)
@@ -37,7 +39,8 @@ class Status extends Component {
             this.setState({
                 lines: response,
                 isLoading: false,
-                isError: false
+                isError: false,
+                updated: new Date()
             })
 
         }).catch((error) => {
@@ -56,13 +59,37 @@ class Status extends Component {
 
     render() {
 
-        const { lines } = this.state
+        const { lines, isLoading, updated } = this.state
 
         return (
             <div>
-                <h3>Status</h3>
-                <button onClick={this.refresh}>refresh</button>
-                {lines.map((line, index) => <StatusLine {...line} key={index} />)}
+
+                <div className="grid">
+
+                    <div className="unit one-third">
+                        <h2>Tube, DLR status</h2>
+                        <p>
+                            To refresh click the button
+                        </p>
+                        <p>
+                            <button className="btn" onClick={this.refresh}>Update</button>
+                        </p>
+                        {updated &&
+                            <small>Updated: {updated.getTime()}</small>
+                        }
+
+                    </div>
+
+                    <div className="unit two-thirds">
+
+                        <Loading isLoading={isLoading} />
+
+                        {lines.map((line, index) => <StatusLine {...line} key={index} />)}
+
+                    </div>
+
+                </div>
+
             </div>
         );
     }

@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+
+import './HeaderNav.css'
 
 const HeaderNav = () => (
 
     <nav>
         <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/planner/lookup">Planner</Link></li>
-            {/* <li><Link to="/arrivals/lookup">Arrivals</Link></li> */}
+            <li><NavLink to="/" exact>Status</NavLink></li>
+            <li><NavLink to="/planner/lookup">Planner</NavLink></li>
+            {/* <li><NavLink to="/arrivals/lookup">Arrivals</NavLink></li> */}
         </ul>
     </nav>
 

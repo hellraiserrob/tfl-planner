@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 
 import StatusLineState from './StatusLineState'
 
+import './StatusLine.css'
+
+
 class StatusLine extends Component {
 
     
     render() {
 
-        const { name, lineStatuses } = this.props
-
-
+        const { name, lineStatuses, id } = this.props
 
         return (
-            <div>
+            <div className={`statusLine ${id}`}>
+
+                <div className="marker"></div>
                 {name}
 
                 {lineStatuses.map((state, index) => <StatusLineState {...state} key={index} />)}
 
-                <hr />
             </div>
         );
     }

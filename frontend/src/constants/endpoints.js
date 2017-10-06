@@ -1,5 +1,5 @@
 export const API_BASE = 'https://api.tfl.gov.uk/'
-export const API_STATUS = 'line/mode/tube,dlr/status/'
+export const API_STATUS = 'line/mode/tube,dlr,overground,tflrail,/status/'
 export const API_JOURNEY = 'journey/journeyresults/'
 export const API_PRICES = 'Stoppoint/'
 export const API_POINTS = 'Stoppoint/Search/'
