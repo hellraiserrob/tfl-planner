@@ -1,0 +1,179 @@
+
+html {
+    font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+    html {
+        font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+
+h1, h2, h3, h4 {
+    margin: 0 0 20px 0;
+    font-weight: 300
+}
+
+h5, h6 {
+    margin: 0 0 15px 0;
+}
+
+
+h1 {
+    font-size: 3.0em;
+    line-height: 1.4em;
+    /* font-weight: 700;  */
+
+    /* border-top: 2px solid #333; */
+}
+
+
+h1 small {
+    font-size: 0.3em;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+}
+
+h1.underline {
+    display: inline-block;
+    border-bottom: 2px solid #333;
+}
+
+h1.overline {
+    display: inline-block;
+    border-top: 2px solid #333;
+}
+
+
+h2 {
+    font-size: 2.0em;
+    line-height: 1.4em;
+    /* font-weight: 700;  */
+}
+
+h3 {
+    font-size: 1.4em;
+    
+}
+
+
+h4 {
+      text-transform: uppercase;  
+     color: rgba(0,0,0, 0.5); 
+    font-size: 14px;
+    position: relative;
+    /* padding-left: 20px; */
+    margin: 0 0 20px 0;
+    font-weight: 400;
+}
+
+p {
+    line-height: 2em;
+    margin-bottom: 20px;
+}
+
+blockquote {
+    line-height: 2em;
+    padding: 0 100px;
+    margin-bottom: 20px;
+    /* text-align: center; */
+    font-size: 1.7em;
+    /* font-weight: 600; */
+    font-family: 'Source Sans Pro'; 
+    
+    color: rgba(0,0,0, 0.6);
+
+    /* border-left: 1px solid #333;
+    border-right: 1px solid #333; */
+}
+
+small {
+    font-size: 0.85em;
+}
+
+
+h1, h2, h3 {
+    font-weight: 700;
+    font-family: 'Source Sans Pro', sans-serif;
+    
+}
+/* 
+.font-unicode {
+    font-family: 'Lucida Console', Monaco, monospace;    
+} */
+
+
+/* h4:before {
+    content: "";
+    position: absolute;
+    top:50%;
+    left:0;
+    width: 10px;
+    height: 1px;
+    background: #ccc;
+    transform: translateY(-50%);
+
+} */
+
+sub {
+    font-size: 0.5em;
+    font-family: "Roboto";
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #999;
+    margin-left: 2px;
+}
+
+
+
+.text-uppercase {
+    text-transform: uppercase
+}
+
+.text-strike {
+    text-decoration: line-through;
+}
+
+.text-xl {
+    font-size: 5.0em;
+    line-height: 0.9em;
+}
+
+/* blackout */
+
+.blackout h1, .blackout h2, .blackout h3 {
+    color: #fff
+} 
+
+.blackout h4 {
+    color: rgba(255, 255, 255, 0.3)
+} 
+
+
+@media screen and (max-width: 1024px) {
+    
+    
+    blockquote {
+        /* padding: 0 20px; */
+        font-size: 1.5em;
+
+    }
+
+}
+
+@media screen and (max-width: 568px) {
+    
+    
+    blockquote {
+        padding: 0;
+        font-size: 1.2em;
+    }
+
+}
