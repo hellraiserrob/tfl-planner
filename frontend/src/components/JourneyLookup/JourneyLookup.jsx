@@ -14,9 +14,9 @@ class JourneyLookup extends Component {
         super(props)
 
         this.state = {
-            from: 'London Liverpool Street',
+            from: 'bank',
             fromId: null,
-            to: 'Paddington',
+            to: 'paddington',
             toId: null,
             isLoading: false,
             isError: false,
@@ -103,31 +103,57 @@ class JourneyLookup extends Component {
         return (
             <div>
 
-                <h4>Lookup</h4>
+                <div className="mb50">
 
-                <p>
-                    <label htmlFor="from">from</label><br />
-                    <input name="from" id="from" type="text" value={from} onChange={this.handleFromChange} placeholder="From" />
-                </p>
-                <p>
-                    <label htmlFor="to">to</label><br />
-                    <input name="to" id="to" type="text" value={to} onChange={this.handleToChange} placeholder="To" />
-                </p>
+                    <div className="grid">
+                        <div className="unit half">
 
-                <button onClick={this.lookup}>search</button>
+                            <label htmlFor="from">from</label>
+                            <input className="form-field" name="from" id="from" type="text" value={from} onChange={this.handleFromChange} placeholder="From" />
 
-                <hr />
+                        </div>
+
+                        <div className="unit half">
+
+                            <label htmlFor="to">to</label>
+                            <input className="form-field" name="to" id="to" type="text" value={to} onChange={this.handleToChange} placeholder="To" />
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <button onClick={this.lookup} className="btn">Search</button>
 
                 <Loading isLoading={isLoading} />
 
-                {lookup.fromLocationDisambiguation &&
-                    <JourneyLookupDisambiguation title="From" {...lookup.fromLocationDisambiguation} set={this.setFrom} value={from} />
-                }
+                <div className="grid">
+
+                    <div className="unit half">
+
+                        {lookup.fromLocationDisambiguation &&
+                            <JourneyLookupDisambiguation title="From" {...lookup.fromLocationDisambiguation} set={this.setFrom} value={from} />
+                        }
+
+                    </div>
+
+                    <div className="unit half">
+
+                        {lookup.toLocationDisambiguation &&
+                            <JourneyLookupDisambiguation title="To" {...lookup.toLocationDisambiguation} set={this.setTo} value={to} />
+                        }
+
+                    </div>
+
+                </div>
 
 
-                {lookup.toLocationDisambiguation &&
-                    <JourneyLookupDisambiguation title="To" {...lookup.toLocationDisambiguation} set={this.setTo} value={to} />
-                }
+
+
+
 
                 {fromId && toId &&
                     <Link to={`/planner/results/${fromId}/${toId}`}>Results</Link>

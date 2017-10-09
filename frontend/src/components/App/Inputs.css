@@ -1,0 +1,25 @@
+
+label {
+    display:none;
+}
+
+
+.form-field {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 15px 0;
+    border-bottom: 2px solid #eee;
+    
+    
+    font-weight: 600;
+    font-family: 'Source Sans Pro'; 
+    font-size: 1.0em;
+    
+    
+}
+
+.form-field:focus {
+    border-color: #333;
+    outline: none;
+}

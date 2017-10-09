@@ -3,12 +3,15 @@ import HeaderNav from './HeaderNav'
 
 import './Header.css'
 
-const Header = () => (
+const Header = ({issues}) => (
 
     <header>
-        <h1>Journey Planner</h1>
+        
+        {/* <h1>
+            TfL
+        </h1> */}
 
-        <HeaderNav />
+        <HeaderNav issues={issues} />
 
     </header>
 

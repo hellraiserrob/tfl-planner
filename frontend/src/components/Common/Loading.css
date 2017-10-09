@@ -1,0 +1,8 @@
+.loading {
+    position: fixed;
+    top:0;
+    right: 0;
+    background: #00b1a8;
+    color: #fff;
+    padding: 5px 10px;
+}

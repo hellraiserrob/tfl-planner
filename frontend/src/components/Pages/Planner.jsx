@@ -14,7 +14,9 @@ class Planner extends Component {
 
         return (
             <div>
-                <h3>journey</h3>
+                <h1 className="mb10">Journey Planner</h1>
+
+                <hr />
 
                 <Route path="/planner/lookup" component={JourneyLookup} /> 
                 <Route path="/planner/results/:from/:to" component={JourneyResults} /> 

@@ -3,10 +3,13 @@ import Status from '../Status/Status'
 
 class Landing extends Component {
     render() {
+
+        const { status, refresh } = this.props
+
         return (
             <div>
                 
-                <Status />
+                <Status status={status} refresh={refresh} />
             </div>
         );
     }

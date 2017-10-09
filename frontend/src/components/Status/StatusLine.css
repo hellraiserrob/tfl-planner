@@ -1,24 +1,57 @@
 .statusLine {
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
+    padding: 13px 20px;
     
     position: relative;
-
-    transform: translateZ(0)
+    
+    transform: translateZ(0);
+    
+    border-bottom: 1px solid #eee;
 }
+
+
+.statusLine.issues{
+    background: #fffeed
+}
+
+
+.statusLine .name {
+    font-family: 'Source Sans Pro';
+    font-weight: 600; 
+}
+
+
+.statusLine .toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #999;
+    cursor: pointer;
+    
+}
+.statusLine .toggle:hover {
+    color: #000;
+}
+
+.statusLine .material-icons {
+    font-size: 26px;
+}
+
 
 .statusLine .marker {
     position: absolute;
     top: 0;
     bottom: -1px;
     left:0;
-    width: 200px;
+    /* right: 0; */
+    width: 5px;
     /* right: 0; */
     /* height: 10px; */
     /* border-radius: 50%; */
     z-index: -1;
     
 }
+
+
 
 .bakerloo .marker {
     background: #894e24;

@@ -12,7 +12,7 @@
 hr {
     height: 0;
     border:0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+    border-bottom: 2px solid #eee;
     /* width: 20px; */
     
     /* border: 3px solid rgba(0, 0, 0, 0.75);
@@ -21,7 +21,7 @@ hr {
     border-radius: 50%; */
 
 
-    margin:20px 0 25px 0;
+    margin: 0 0 25px 0;
     float:none;
     text-align: left;
 
@@ -62,6 +62,7 @@ hr.long {
 .mb200, .mblg { margin-bottom: 200px }
 
 
+.pt10 { padding-top: 10px}
 .pt25 { padding-top: 25px}
 .pt50, .ptsm { padding-top: 50px}
 .pt100, .ptmd { padding-top: 100px}

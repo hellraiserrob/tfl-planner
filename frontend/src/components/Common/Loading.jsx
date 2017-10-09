@@ -1,11 +1,11 @@
 import React from 'react';
-
+import './Loading.css'
 
 const Loading = ({ isLoading }) => (
 
     <div>
         {isLoading && 
-            <div>loading...</div>
+            <div className="loading">loading...</div>
         }
     </div>
 

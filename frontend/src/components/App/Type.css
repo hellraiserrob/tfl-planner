@@ -27,11 +27,13 @@ h5, h6 {
 
 
 h1 {
-    font-size: 3.0em;
+    font-size: 2.6em;
     line-height: 1.4em;
+    /* text-align: center; */
     /* font-weight: 700;  */
 
     /* border-top: 2px solid #333; */
+    
 }
 
 
@@ -60,19 +62,10 @@ h2 {
 
 h3 {
     font-size: 1.4em;
-    
 }
 
 
-h4 {
-      text-transform: uppercase;  
-     color: rgba(0,0,0, 0.5); 
-    font-size: 14px;
-    position: relative;
-    /* padding-left: 20px; */
-    margin: 0 0 20px 0;
-    font-weight: 400;
-}
+
 
 p {
     line-height: 2em;
@@ -99,11 +92,15 @@ small {
 }
 
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-weight: 700;
     font-family: 'Source Sans Pro', sans-serif;
-    
 }
+h4 {
+    font-weight: 600;
+}
+
+
 /* 
 .font-unicode {
     font-family: 'Lucida Console', Monaco, monospace;    

@@ -5,7 +5,11 @@ import './Footer.css'
 const Footer = () => (
 
     <footer className="text-center">
-        &copy; Rob Phillips
+
+        <h4 className="mb10">&copy; Robert Phillips</h4>
+        <small>All data coming via <a href="http://www.tfl.gov.uk">Transport for London</a></small>
+
+
     </footer>
 
 

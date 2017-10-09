@@ -1,0 +1,18 @@
+.statusLineIssue {
+    padding: 0 80px 0 30px;
+    position: relative
+}
+
+.statusLineIssue:before {
+    content: "";
+    position: absolute;
+    top:8px;
+    left:8px;
+    width: 12px;
+    height: 2px;
+    background: #ccc;
+}
+
+statusLineIssue__description {
+    
+}
