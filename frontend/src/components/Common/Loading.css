@@ -1,8 +1,43 @@
 .loading {
     position: fixed;
     top:0;
+    left:0;
     right: 0;
+
+    height: 2px;
+    
+}
+
+.loading .bar {
+    position: absolute;
+    
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    
     background: #00b1a8;
-    color: #fff;
-    padding: 5px 10px;
+
+    transition: all 0.5s;
+
+    animation: loading infinite 1s;
+
+    transform-origin: 0 0;
+
+
+}
+
+@keyframes loading {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(1)
+    }
 }

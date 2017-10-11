@@ -1,0 +1,40 @@
+.journeyLookupDisambiguation {
+    margin-left:0;
+    padding:0;
+    list-style: none;
+}
+
+.journeyLookupDisambiguation li{
+    margin: 0 0 5px 0;
+
+    font-weight: 600;
+    font-family: 'Source Sans Pro'; 
+}
+
+.journeyLookupDisambiguation li a{
+    display: block;
+    /* font-size: 0.9em; */
+    position: relative;
+    /* padding-left: 20px; */
+    cursor: pointer;
+
+    
+
+    color: #999;
+}
+
+.journeyLookupDisambiguation li a.active{
+    /* background: yellow; */
+    color: blue;
+}
+    /* 
+
+    .journeyLookupDisambiguation li a:before{
+        position: absolute;
+        content: "";
+        top: 8px;
+        left:0;
+        width: 8px;
+        height: 2px;
+        background: blue;
+    } */

@@ -25,7 +25,9 @@ class Status extends Component {
 
                 </div>
 
-                {status.map((line, index) => <StatusLine {...line} key={index} />)}
+                <div className="fadeIn">
+                    {status.map((line, index) => <StatusLine {...line} key={index} />)}
+                </div>
 
 
             </div>

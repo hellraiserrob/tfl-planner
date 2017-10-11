@@ -9,10 +9,11 @@ import './Grid.css';
 import './Type.css';
 import './Button.css';
 import './Inputs.css';
+import './Animations.css';
 import './Helpers.css';
 
 import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+// import Footer from '../Footer/Footer'
 
 import Landing from '../Pages/Landing'
 import Planner from '../Pages/Planner'
@@ -164,7 +165,7 @@ class App extends Component {
                         </div>
                     </div>
 
-                    <Footer />
+                    {/* <Footer /> */}
 
                 </div>
             </Router>

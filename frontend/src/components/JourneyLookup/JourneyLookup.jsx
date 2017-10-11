@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import { getUrl } from '../../utils/services.js'
@@ -14,9 +14,9 @@ class JourneyLookup extends Component {
         super(props)
 
         this.state = {
-            from: 'bank',
+            from: '',
             fromId: null,
-            to: 'paddington',
+            to: '',
             toId: null,
             isLoading: false,
             isError: false,
@@ -32,6 +32,23 @@ class JourneyLookup extends Component {
         this.handleToChange = this.handleToChange.bind(this)
     }
 
+    componentDidMount(){
+        
+        const { from, to } = this.props.match.params
+
+        
+        if(typeof from !== 'undefined' && typeof to !== 'undefined'){
+            this.setState({
+                from,
+                to
+            }, this.lookup)
+        }
+        
+
+
+
+    }
+
 
 
     lookup() {
@@ -45,6 +62,24 @@ class JourneyLookup extends Component {
         getUrl(`${API_BASE}${API_JOURNEY}${from}/to/${to}?mode=tube`).then((response) => {
 
             console.log(response)
+
+            if(response.fromLocationDisambiguation){
+                if(response.fromLocationDisambiguation.matchStatus === 'identified'){
+                    this.setFrom(from)
+                }
+            }
+            
+            if(response.toLocationDisambiguation){
+                if(response.toLocationDisambiguation.matchStatus === 'identified'){
+                    this.setTo(to)
+                }
+            }
+            
+            if(response.journeys){
+                this.setFrom(from)
+                this.setTo(to)
+            }
+
 
             this.setState({
                 lookup: response,
@@ -125,8 +160,11 @@ class JourneyLookup extends Component {
                 </div>
 
 
+                <div className="mb50">
 
-                <button onClick={this.lookup} className="btn">Search</button>
+                    <button onClick={this.lookup} className="btn">Search</button>
+
+                </div>
 
                 <Loading isLoading={isLoading} />
 
@@ -135,7 +173,7 @@ class JourneyLookup extends Component {
                     <div className="unit half">
 
                         {lookup.fromLocationDisambiguation &&
-                            <JourneyLookupDisambiguation title="From" {...lookup.fromLocationDisambiguation} set={this.setFrom} value={from} />
+                            <JourneyLookupDisambiguation title="From" {...lookup.fromLocationDisambiguation} set={this.setFrom} value={from} active={fromId} />
                         }
 
                     </div>
@@ -143,20 +181,15 @@ class JourneyLookup extends Component {
                     <div className="unit half">
 
                         {lookup.toLocationDisambiguation &&
-                            <JourneyLookupDisambiguation title="To" {...lookup.toLocationDisambiguation} set={this.setTo} value={to} />
+                            <JourneyLookupDisambiguation title="To" {...lookup.toLocationDisambiguation} set={this.setTo} value={to} active={toId} />
                         }
 
                     </div>
 
                 </div>
 
-
-
-
-
-
                 {fromId && toId &&
-                    <Link to={`/planner/results/${fromId}/${toId}`}>Results</Link>
+                    <Link to={`/planner/results/${from}/${to}/${fromId}/${toId}`} className="btn">Results</Link>
                 }
 
             </div>

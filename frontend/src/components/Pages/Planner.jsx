@@ -14,12 +14,13 @@ class Planner extends Component {
 
         return (
             <div>
-                <h1 className="mb10">Journey Planner</h1>
+                <h1 className="">Journey Planner</h1>
 
-                <hr />
 
-                <Route path="/planner/lookup" component={JourneyLookup} /> 
-                <Route path="/planner/results/:from/:to" component={JourneyResults} /> 
+                {/* <hr /> */}
+
+                <Route path="/planner/lookup/:from?/:to?" component={JourneyLookup} /> 
+                <Route path="/planner/results/:from/:to/:fromId/:toId" component={JourneyResults} /> 
 
                 {/* <JoureyPlanner /> */}
 

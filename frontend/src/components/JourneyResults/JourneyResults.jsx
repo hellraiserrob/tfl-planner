@@ -30,13 +30,13 @@ class JourneyResults extends Component {
 
     getResults() {
 
-        const { from, to } = this.props.match.params
+        const { fromId, toId } = this.props.match.params
 
         this.setState({
             isLoading: true
         })
 
-        getUrl(`${API_BASE}${API_JOURNEY}${from}/to/${to}`).then((response) => {
+        getUrl(`${API_BASE}${API_JOURNEY}${fromId}/to/${toId}`).then((response) => {
 
             console.log(response)
 
@@ -64,16 +64,14 @@ class JourneyResults extends Component {
 
         const { results, isLoading } = this.state
 
+        const { from, to } = this.props.match.params
+
         return (
             <div>
-
-                <Link to="/planner/lookup">Back</Link>
-
-                <h4>Results</h4>
-
-                <hr />
-
+                
                 <Loading isLoading={isLoading} />
+
+                <Link to={`/planner/lookup/${from}/${to}`} className="btn">Back</Link>
 
                 {results.journeys && results.journeys.map((journey, index) =>
                     <JourneyResultsRoute {...journey} key={index} />

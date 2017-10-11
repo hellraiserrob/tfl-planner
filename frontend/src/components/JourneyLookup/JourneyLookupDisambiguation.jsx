@@ -1,32 +1,55 @@
 import React, { Component } from 'react';
+import classNames from 'classnames'
+
+import './JourneyLookupDisambiguation.css'
 
 class JourneyLookupDisambiguation extends Component {
 
     render() {
 
-        const { title, disambiguationOptions, set, matchStatus, value } = this.props
+        const { title, disambiguationOptions, set, matchStatus, value, active } = this.props
 
         const matched = matchStatus === 'identified' ? true : false
+        const notIdentified = matchStatus === 'notidentified' ? true : false
 
         return (
-            <div>
+            <div className="fadeIn">
 
 
-                <h5>{title}</h5>
+                <h4>Select {title}</h4>
 
-                {disambiguationOptions && disambiguationOptions.map((option, index) => {
-                    return <div key={index}>
-                        <a onClick={() => set(option.parameterValue)}>
-                            {option.place.commonName}
-                        </a>
-                    </div>
-                })}
+                <ul className="journeyLookupDisambiguation mb50">
+                    {disambiguationOptions && disambiguationOptions.map((option, index) => {
 
-                {matched &&
-                    <a onClick={() => set(value)}>
-                        {value}
-                    </a>
-                }
+                        const optionClass = classNames({
+                            active: active === option.parameterValue ? true : false
+                        })
+
+                        return <li key={index}>
+                            <a onClick={() => set(option.parameterValue)} className={optionClass}>
+                                {option.place.commonName}
+                            </a>
+                        </li>
+                    })}
+
+                    {matched &&
+                        <li>
+                            <a onClick={() => set(value)} className="active">
+                                {value}
+                            </a>
+                        </li>
+                    }
+
+
+                    {notIdentified &&
+                        <li>
+                            No match was found
+                        </li>
+                    }
+
+                </ul>
+
+
 
 
             </div>

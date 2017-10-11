@@ -62,7 +62,7 @@ class StatusLine extends Component {
         })
         
         const nameClass = classNames({
-            mb20: isOpen,
+            
             name: true
         })
 
