@@ -1,0 +1,32 @@
+{
+  "name": "tfl-planner",
+  "version": "1.0.0",
+  "description": "https://devcenter.heroku.com/articles/git",
+  "engines": {
+    "node": "6.4.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server --ignore frontend/",
+    "heroku-postbuild": "cd frontend/ && npm install --only=dev && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellraiserrob/tfl-planner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellraiserrob/tfl-planner/issues"
+  },
+  "homepage": "https://github.com/hellraiserrob/tfl-planner#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "helmet": "^3.8.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

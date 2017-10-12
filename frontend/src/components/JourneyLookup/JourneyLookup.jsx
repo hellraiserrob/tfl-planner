@@ -43,6 +43,8 @@ class JourneyLookup extends Component {
                 to
             }, this.lookup)
         }
+
+        this.from.focus()
         
 
 
@@ -144,7 +146,7 @@ class JourneyLookup extends Component {
                         <div className="unit half">
 
                             <label htmlFor="from">from</label>
-                            <input className="form-field" name="from" id="from" type="text" value={from} onChange={this.handleFromChange} placeholder="From" />
+                            <input ref={(from) => {this.from = from}} className="form-field" name="from" id="from" type="text" value={from} onChange={this.handleFromChange} placeholder="From" />
 
                         </div>
 
@@ -162,7 +164,7 @@ class JourneyLookup extends Component {
 
                 <div className="mb50">
 
-                    <button onClick={this.lookup} className="btn">Search</button>
+                    <button onClick={this.lookup} className="btn" disabled={from === '' || to === ''}>Search</button>
 
                 </div>
 

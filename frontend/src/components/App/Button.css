@@ -32,6 +32,13 @@
     color: #fff
 }
 
+.btn:disabled {
+    background: #ccc;
+    cursor: default;
+}
+
+
+
 /* 
 .btn:before {
     content: "";
