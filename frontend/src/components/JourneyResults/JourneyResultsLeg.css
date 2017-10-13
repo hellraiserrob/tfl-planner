@@ -1,0 +1,62 @@
+.journeyResultsLeg {
+    margin: 0 0 20px 0;
+}
+
+
+
+.journeyResultsLeg .leg-summary{
+    
+    font-weight: 600;
+    
+    position: relative;
+    padding: 0 0 10px 30px;
+    /* background: #eee;  */
+    /* border-bottom: 1px solid #ddd; */
+
+    margin: 0 0 0 0;
+}
+
+
+.journeyResultsLeg .leg-summary .mode{
+    position: absolute;
+    top: 10px;
+    left:20px;
+    font-weight: 600;
+    
+}
+
+
+.journeyResultsLeg .stopping {
+    padding:0 0 0 0;
+    margin:0 0 0 45px;
+    list-style: none;
+    /* font-size: 0.9em; */
+    /* border-left: 2px solid #000; */
+}
+
+.journeyResultsLeg .stopping li{
+    margin: 0 0 5px 0;
+    position: relative;
+}
+
+.journeyResultsLeg .stopping li:first-child, 
+.journeyResultsLeg .stopping li:last-child {
+    font-weight: 600;
+}
+
+
+
+.journeyResultsLeg .stopping .marker {
+    position: absolute;
+    top: 50%;
+    left: -14px;
+
+    transform: translateY(-50%);
+
+    width: 5px;
+    height: 1px;
+    /* border-radius: 50%; */
+    background: #000;
+    /* border: 2px solid #000; */
+
+}

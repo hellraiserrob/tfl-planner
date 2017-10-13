@@ -1,0 +1,11 @@
+.journeyResultsRoute {
+    margin: 0 0 50px 0;
+}
+
+
+.journeyResultsRoute .route-summary{
+    
+    font-weight: 600;
+    
+    position: relative;
+}

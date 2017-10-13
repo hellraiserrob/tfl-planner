@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { getUrl } from '../../utils/services.js'
 import { API_BASE, API_JOURNEY } from '../../constants/endpoints.js'
 
+
+import './JourneyResults.css'
+
 import JourneyResultsRoute from './JourneyResultsRoute'
 import Loading from '../Common/Loading'
 
@@ -23,7 +26,7 @@ class JourneyResults extends Component {
 
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getResults()
     }
 
@@ -68,14 +71,21 @@ class JourneyResults extends Component {
 
         return (
             <div>
-                
+
                 <Loading isLoading={isLoading} />
 
-                <Link to={`/planner/lookup/${from}/${to}`} className="btn">Back</Link>
+                <div className="mb50">
 
-                {results.journeys && results.journeys.map((journey, index) =>
-                    <JourneyResultsRoute {...journey} key={index} />
-                )}
+                    <Link to={`/planner/lookup/${from}/${to}`} className="btn">Back</Link>
+
+                </div>
+
+                <div className="journeyResults">
+                    {results.journeys && results.journeys.map((journey, index) =>
+                        <JourneyResultsRoute {...journey} key={index} />
+                    )}
+                </div>
+
 
             </div>
         );

@@ -1,0 +1,77 @@
+.journeyResultsRouteOptions {
+    position: relative;
+    padding: 10px 0;
+}
+
+.journeyResultsRouteOptions .line{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    width: 3px;
+    background: #ccc;
+    text-indent: -6000px; 
+}
+
+
+
+.bakerloo.line {
+    background: #894e24;
+}
+
+.central.line {
+    background: #dc241f;
+}
+
+.circle.line {
+    background: #ffce00;
+}
+
+.district.line {
+    background: #007229;
+}
+
+.hammersmith-city.line {
+    background: #d799af;
+}
+
+.dlr.line {
+    background: #00b1a8;
+}
+
+.jubilee.line {
+    background: #667070;
+}
+
+.metropolitan.line {
+    background: #82034f;
+}
+
+.northern.line {
+    background: #000000;
+}
+
+
+
+.piccadilly.line {
+    background: #01229f;
+}
+
+.victoria.line {
+    background: #00a1e1;
+}
+
+.waterloo-city.line {
+    background: #43d3bb;
+}
+
+.tfl-rail.line {
+    background: #01229f;
+}
+
+.tram.line {
+    background: #19cf3e;
+}
+.london-overground.line {
+    background: #fd6000;
+}
