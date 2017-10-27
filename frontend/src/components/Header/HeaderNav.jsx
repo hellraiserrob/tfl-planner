@@ -18,7 +18,7 @@ const HeaderNav = ({issues}) => (
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/planner/lookup">
+                <NavLink to="/planner">
                     <i className="material-icons">&#xE52E;</i>
                     Planner
                 </NavLink>

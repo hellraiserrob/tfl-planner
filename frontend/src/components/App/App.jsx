@@ -39,25 +39,35 @@ class App extends Component {
 
         this.refresh = this.refresh.bind(this)
         this.tick = this.tick.bind(this)
+        this.pause = this.pause.bind(this)
+        this.play = this.play.bind(this)
+    }
+
+    pause(){
+        // console.log('pause')
+        clearTimeout(this.ticker)
+    }
+
+    play(){
+        // console.log('play')
+        this.refresh()
     }
 
     componentDidMount() {
-
         this.refresh()
-        // this.tick()
-
     }
 
     tick(){
 
         this.ticker = setTimeout(() => {
             this.refresh()
-        }, 100000)
+            
+        }, 10000)
 
     }
 
     componentWillUnmount(){
-        clearTimeout(this.ticker)
+        this.pause()
     }
 
     refresh() {
@@ -68,7 +78,7 @@ class App extends Component {
 
         getUrl(`${API_BASE}${API_STATUS}`).then((response) => {
 
-            // console.log(response)
+            // console.log('refresh status')
 
             this.setState({
                 status: response,
@@ -77,7 +87,7 @@ class App extends Component {
                 updated: new Date()
             })
 
-            // this.tick()
+            this.tick()
 
         }).catch((error) => {
 
@@ -140,7 +150,7 @@ class App extends Component {
 
     render() {
 
-        const { status, isLoading } = this.state
+        const { status, isLoading, updated } = this.state
 
         const issues = this.countIssues(status)
 
@@ -158,7 +168,9 @@ class App extends Component {
                     <div className="wrap">
                         <div className="grid">
                             <div className="unit whole">
-                                <Route exact path="/" component={props => (<Landing status={status} refresh={this.refresh} />)} />
+
+                                <Route exact path="/" render={props => (<Landing status={status} refresh={this.refresh} updated={updated} pause={this.pause} play={this.play} />)} />
+                                
                                 <Route path="/planner" component={Planner} />
                                 <Route path="/arrivals" component={Arrivals} />
                             </div>

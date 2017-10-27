@@ -7,7 +7,7 @@ class JourneyLookupDisambiguation extends Component {
 
     render() {
 
-        const { title, disambiguationOptions, set, matchStatus, value, active } = this.props
+        const { disambiguationOptions, set, matchStatus, value, active } = this.props
 
         const matched = matchStatus === 'identified' ? true : false
         const notIdentified = matchStatus === 'notidentified' ? true : false
@@ -16,7 +16,7 @@ class JourneyLookupDisambiguation extends Component {
             <div className="fadeIn">
 
 
-                <h4>Select {title}</h4>
+                {/* <h4>Select {title}</h4> */}
 
                 <ul className="journeyLookupDisambiguation mb50">
                     {disambiguationOptions && disambiguationOptions.map((option, index) => {

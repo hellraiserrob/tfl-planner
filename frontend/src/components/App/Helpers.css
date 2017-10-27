@@ -40,6 +40,11 @@ hr.long {
     border-bottom: 1px solid rgba(0, 0, 0, 0.075)
 }
 
+.text-muted {
+    color: #999;
+}
+
+
 
 .blackout hr {
     border-bottom-color:hotpink
@@ -51,6 +56,10 @@ hr.long {
 }
 
 
+.inline-block {
+    display: inline-block
+}
+
 .mb0 { margin-bottom: 0 }
 .mb5 { margin-bottom: 5px }
 .mb10 { margin-bottom: 10px }
@@ -61,6 +70,7 @@ hr.long {
 .mb100, .mbmd { margin-bottom: 100px }
 .mb200, .mblg { margin-bottom: 200px }
 
+.ml10 { margin-left: 10px }
 
 .pt10 { padding-top: 10px}
 .pt25 { padding-top: 25px}

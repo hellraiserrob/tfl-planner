@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import { getUrl } from '../../utils/services.js'
 import { API_BASE, API_JOURNEY } from '../../constants/endpoints.js'
@@ -21,31 +21,34 @@ class JourneyLookup extends Component {
             isLoading: false,
             isError: false,
             lookup: {},
+            redirectBack: false,
+            redirectFwd: false,
 
         }
 
         this.lookup = this.lookup.bind(this)
         this.setFrom = this.setFrom.bind(this)
         this.setTo = this.setTo.bind(this)
+        this.checkSet = this.checkSet.bind(this)
 
-        this.handleFromChange = this.handleFromChange.bind(this)
-        this.handleToChange = this.handleToChange.bind(this)
     }
 
-    componentDidMount(){
-        
-        const { from, to } = this.props.match.params
+    componentDidMount() {
 
-        
-        if(typeof from !== 'undefined' && typeof to !== 'undefined'){
+        // const { from, to } = this.props.match.params
+        const { from, to } = this.props
+
+        if (from !== '' && to !== '') {
             this.setState({
                 from,
                 to
             }, this.lookup)
         }
-
-        this.from.focus()
-        
+        else {
+            this.setState({
+                redirectBack: true
+            })
+        }
 
 
 
@@ -54,6 +57,7 @@ class JourneyLookup extends Component {
 
 
     lookup() {
+
 
         const { from, to } = this.state
 
@@ -65,19 +69,19 @@ class JourneyLookup extends Component {
 
             console.log(response)
 
-            if(response.fromLocationDisambiguation){
-                if(response.fromLocationDisambiguation.matchStatus === 'identified'){
+            if (response.fromLocationDisambiguation) {
+                if (response.fromLocationDisambiguation.matchStatus === 'identified') {
                     this.setFrom(from)
                 }
             }
-            
-            if(response.toLocationDisambiguation){
-                if(response.toLocationDisambiguation.matchStatus === 'identified'){
+
+            if (response.toLocationDisambiguation) {
+                if (response.toLocationDisambiguation.matchStatus === 'identified') {
                     this.setTo(to)
                 }
             }
-            
-            if(response.journeys){
+
+            if (response.journeys) {
                 this.setFrom(from)
                 this.setTo(to)
             }
@@ -102,32 +106,37 @@ class JourneyLookup extends Component {
 
     }
 
-
-    handleFromChange(event) {
-        this.setState({
-            from: event.target.value
-        })
-    }
-
-    handleToChange(event) {
-        this.setState({
-            to: event.target.value
-        })
-    }
-
     setFrom(fromId) {
+
 
         this.setState({
             fromId
-        })
+        }, this.checkSet)
 
+        
+        
     }
-
+    
     setTo(toId) {
-
+        
         this.setState({
             toId
-        })
+        }, this.checkSet)
+        
+        
+    }
+
+    checkSet() {
+
+        const { fromId, toId } = this.state
+
+        if (fromId && toId) {
+
+            this.setState({
+                redirectFwd: true
+            })
+
+        }
 
     }
 
@@ -135,38 +144,19 @@ class JourneyLookup extends Component {
 
     render() {
 
-        const { from, to, lookup, fromId, toId, isLoading } = this.state
+        const { redirectBack, redirectFwd, from, to, lookup, fromId, toId, isLoading } = this.state
 
         return (
             <div>
 
-                <div className="mb50">
+                {redirectBack &&
+                    <Redirect to={`/planner`} />
+                }
 
-                    <div className="grid">
-                        <div className="unit half">
+                {redirectFwd &&
+                    <Redirect to={`/planner/results/${from}/${to}/${fromId}/${toId}`} />
+                }
 
-                            <label htmlFor="from">from</label>
-                            <input ref={(from) => {this.from = from}} className="form-field" name="from" id="from" type="text" value={from} onChange={this.handleFromChange} placeholder="From" />
-
-                        </div>
-
-                        <div className="unit half">
-
-                            <label htmlFor="to">to</label>
-                            <input className="form-field" name="to" id="to" type="text" value={to} onChange={this.handleToChange} placeholder="To" />
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div className="mb50">
-
-                    <button onClick={this.lookup} className="btn" disabled={from === '' || to === ''}>Search</button>
-
-                </div>
 
                 <Loading isLoading={isLoading} />
 
@@ -190,9 +180,6 @@ class JourneyLookup extends Component {
 
                 </div>
 
-                {fromId && toId &&
-                    <Link to={`/planner/results/${from}/${to}/${fromId}/${toId}`} className="btn">Results</Link>
-                }
 
             </div>
         );

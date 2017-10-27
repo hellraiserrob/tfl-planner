@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { getUrl } from '../../utils/services.js'
 import { API_BASE, API_JOURNEY } from '../../constants/endpoints.js'
 
@@ -27,6 +27,13 @@ class JourneyResults extends Component {
     }
 
     componentDidMount() {
+
+        // console.log(this.props)
+
+        const {from, to} = this.props.match.params
+
+        this.props.update(from, to)
+
         this.getResults()
     }
 
@@ -41,7 +48,7 @@ class JourneyResults extends Component {
 
         getUrl(`${API_BASE}${API_JOURNEY}${fromId}/to/${toId}`).then((response) => {
 
-            console.log(response)
+            // console.log(response)
 
             this.setState({
                 results: response,
@@ -67,18 +74,20 @@ class JourneyResults extends Component {
 
         const { results, isLoading } = this.state
 
-        const { from, to } = this.props.match.params
+        // const { from, to } = this.props.match.params
 
         return (
-            <div>
+            <div className="fadeIn">
+
+                
 
                 <Loading isLoading={isLoading} />
 
-                <div className="mb50">
+                {/* {<div className="mb50">
 
-                    <Link to={`/planner/lookup/${from}/${to}`} className="btn">Back</Link>
+                    <Link to={`/planner/lookup`} className="btn">Back</Link>
 
-                </div>
+                </div>} */}
 
                 <div className="journeyResults">
                     {results.journeys && results.journeys.map((journey, index) =>

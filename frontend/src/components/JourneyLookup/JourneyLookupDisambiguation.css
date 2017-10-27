@@ -26,6 +26,8 @@
 .journeyLookupDisambiguation li a.active{
     /* background: yellow; */
     color: blue;
+    /* font-size: 1.1em; */
+    margin: 0 0;
 }
     /* 
 
