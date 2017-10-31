@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { getUrl } from '../../utils/services.js'
 import { API_BASE, API_JOURNEY } from '../../constants/endpoints.js'
 
+import { addHistory } from '../../utils/history'
 
 import './JourneyResults.css'
 
@@ -40,7 +41,7 @@ class JourneyResults extends Component {
 
     getResults() {
 
-        const { fromId, toId } = this.props.match.params
+        const { from, to, fromId, toId } = this.props.match.params
 
         this.setState({
             isLoading: true
@@ -55,6 +56,15 @@ class JourneyResults extends Component {
                 isLoading: false,
                 isError: false
             })
+
+
+            addHistory({
+                from,
+                to,
+                fromId,
+                toId
+            })
+
 
         }).catch((error) => {
 

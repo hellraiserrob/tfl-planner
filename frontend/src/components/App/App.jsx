@@ -18,6 +18,7 @@ import Header from '../Header/Header'
 import Landing from '../Pages/Landing'
 import Planner from '../Pages/Planner'
 import Arrivals from '../Pages/Arrivals'
+import History from '../Pages/History'
 
 
 import { getUrl } from '../../utils/services.js'
@@ -172,6 +173,7 @@ class App extends Component {
                                 <Route exact path="/" render={props => (<Landing status={status} refresh={this.refresh} updated={updated} pause={this.pause} play={this.play} />)} />
                                 
                                 <Route path="/planner" component={Planner} />
+                                <Route path="/history" component={History} />
                                 <Route path="/arrivals" component={Arrivals} />
                             </div>
                         </div>
